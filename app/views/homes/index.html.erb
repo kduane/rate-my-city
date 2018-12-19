@@ -1,4 +1,7 @@
+<h1> Cities available to review:
+
 <p>
-  Modify me in `app/views/homes/index.html.erb` or change the root directive in
-  `config/routes.rb`
+<% @cities.each do %>
+  <%= render partial: "./cities/city", object: city %>
+  <% end %>
 </p>
