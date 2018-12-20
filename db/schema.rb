@@ -26,14 +26,16 @@ ActiveRecord::Schema.define(version: 2018_12_18_000504) do
   create_table "reviews", force: :cascade do |t|
     t.string "title"
     t.string "body"
+    t.bigint "city_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["city_id"], name: "index_reviews_on_city_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "role", default: "member", null: false
-    t.string "first_name", null: false
-    t.string "last_name", null: false
+    t.string "first_name", default: "", null: false
+    t.string "last_name", default: "", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -47,8 +49,10 @@ ActiveRecord::Schema.define(version: 2018_12_18_000504) do
 
   create_table "votes", force: :cascade do |t|
     t.integer "score"
+    t.bigint "review_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["review_id"], name: "index_votes_on_review_id"
   end
 
 end

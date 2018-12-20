@@ -12,3 +12,13 @@
     description: Faker::Hipster.paragraph
   )
 end
+
+City.all.each do |city|
+  3.times do
+    Review.create(
+      city_id: city.id,
+      title: Faker::OnePiece.akuma_no_mi,
+      body: Faker::OnePiece.quote
+    )
+  end
+end

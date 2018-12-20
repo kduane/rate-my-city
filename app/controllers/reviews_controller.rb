@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
   def index
     @city = City.find(params[:city_id])
+    binding.pry
     @reviews = @city.reviews
   end
 

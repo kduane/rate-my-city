@@ -4,5 +4,6 @@
 <%= link_to 'Rate this City!', new_city_review_path(@city) %>
 
 <% @city.reviews.reverse.each do |review| %>
+  <h5> <%= review.title %> </h5>
   <p> <%= review.body%></p>
 <% end %>
