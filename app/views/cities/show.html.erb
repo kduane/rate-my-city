@@ -1,0 +1,8 @@
+<% city = @city %>
+<%= render partial: "city", object: city %>
+
+<%= link_to 'Rate this City!', new_city_review_path(@city) %>
+
+<% @city.reviews.reverse.each do |review| %>
+  <p> <%= review.body%></p>
+<% end %>
