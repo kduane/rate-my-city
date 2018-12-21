@@ -50,8 +50,10 @@ ActiveRecord::Schema.define(version: 2018_12_18_000504) do
   create_table "votes", force: :cascade do |t|
     t.integer "score"
     t.bigint "review_id"
+    t.bigint "city_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["city_id"], name: "index_votes_on_city_id"
     t.index ["review_id"], name: "index_votes_on_review_id"
   end
 
