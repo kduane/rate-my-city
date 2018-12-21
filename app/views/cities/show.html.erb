@@ -5,5 +5,7 @@
 
 <% @city.reviews.reverse.each do |review| %>
   <h5> <%= review.title %> </h5>
+  Rating:<%= review.rating %>
   <p> <%= review.body%></p>
+
 <% end %>

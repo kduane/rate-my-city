@@ -1,7 +1,6 @@
 class ReviewsController < ApplicationController
   def index
     @city = City.find(params[:city_id])
-    binding.pry
     @reviews = @city.reviews
   end
 
@@ -9,6 +8,12 @@ class ReviewsController < ApplicationController
     @city = City.find(params[:city_id])
     @review = Review.new
   end
+
+  def show
+    @review = review.find(params[:id])
+    render :show
+  end
+
 
   def create
     @city = City.find(params[:city_id])
@@ -27,7 +32,7 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:body)
+    params.require(:review).permit(:title, :body)
   end
 
 end
