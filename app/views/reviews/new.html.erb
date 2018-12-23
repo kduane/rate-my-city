@@ -6,16 +6,6 @@
   <%= f.label :body %>
   <%= f.text_field :body %>
   <%= f.label :rating %>
-  1
-  <%= f.radio_button :rating, '1', value: 1 %>
-  2
-  <%= f.radio_button :rating, '2', value: 2 %>
-  3
-  <%= f.radio_button :rating, '3', value: 3 %>
-  4
-  <%= f.radio_button :rating, '4', value: 4 %>
-  5
-  <%= f.radio_button :rating, '5', value: 5 %>
-
+  <%= f.select :rating, [1, 2, 3, 4, 5] %>
   <%= f.submit %>
 <% end %>

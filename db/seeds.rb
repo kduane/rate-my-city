@@ -18,7 +18,8 @@ City.all.each do |city|
     Review.create(
       city_id: city.id,
       title: Faker::OnePiece.akuma_no_mi,
-      body: Faker::OnePiece.quote
+      body: Faker::OnePiece.quote,
+      rating: rand(5)
     )
   end
 end

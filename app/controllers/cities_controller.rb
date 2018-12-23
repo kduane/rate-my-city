@@ -54,6 +54,6 @@ class CitiesController < ApplicationController
   private
 
   def question_params
-    params.require(:city).permit(:title, :description)
+    params.require(:city).permit(:title, :description, :rating)
   end
 end

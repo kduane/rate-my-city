@@ -10,7 +10,8 @@ class ReviewsController < ApplicationController
   end
 
   def show
-    @review = review.find(params[:id])
+    @review = Review.find(params[:id])
+    binding.pry
     render :show
   end
 
@@ -32,7 +33,7 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:title, :body)
+    params.require(:review).permit(:title, :body, :rating)
   end
 
 end
