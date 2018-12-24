@@ -10,15 +10,14 @@ class Review < ApplicationRecord
   end
 
   def calculate_rating
-    binding.pry
-    cityvotes = Votes.where(self.city_id) || 1
+    cityvotes = Review.where(city_id: city_id)
     total_score = 0
     cityvotes.each do |vote|
-      total_score += vote.score
+      total_score += vote.rating
     end
-    binding.pry
-    self.city_id.rating = total_score / cityvotes.length * 100
-    self.city_id.update
+    # binding.pry
+    city.rating = (total_score / (cityvotes.length == 0 ? 1 : cityvotes.length)).to_i
+    city.save
   end
 
 end

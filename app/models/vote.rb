@@ -5,7 +5,7 @@ class Vote < ApplicationRecord
   after_save :calculate_rating
 
   def calculate_rating
-    cityvotes = Votes.where(self.city_id)
+    cityvotes = Vote.where(self.city_id)
     total_score = 0
     cityvotes.each do |vote|
       total_score += vote.score
