@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'cities#index'
   devise_for :users
-  resources :users, :reviews
+  resources :users, :reviews, :cities, :votes
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :cities do
@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
 
   resources :reviews do
-    resources :votes, only: [:new, :create]
+    resources :votes
   end
 
 
