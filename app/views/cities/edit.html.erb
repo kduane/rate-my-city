@@ -1,0 +1,11 @@
+<h1> Update your City information? </h1>
+<%= form_for @city do |f| %>
+
+  <%= f.label :city_name %>
+  <%= f.text_field :city_name %>
+
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+
+  <%= f.submit %>
+<% end %>

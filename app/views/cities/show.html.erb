@@ -4,8 +4,13 @@
 <%= link_to 'Rate this City!', new_city_review_path(@city) %>
 
 <% @city.reviews.reverse.each do |review| %>
-  <h5> <%= review.title %> </h5>
+  <h5><%= link_to "#{review.title}", review_path(review) %></h5>
   Rating:<%= review.rating %>
   <p> <%= review.body%></p>
+  <tr>
+    <td><%= link_to 'Show', review_path(review) %></td>
+    <td><%= link_to 'Edit', edit_review_path(review) %></td>
+    <td><%= link_to 'Delete', review, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
 
 <% end %>

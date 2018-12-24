@@ -1,5 +1,7 @@
 <h4>Want to rate a city?</h4>
 
+<%= link_to 'Add a City', new_city_path %>
+
 <% @cities.each do |city| %>
   <%= render partial: "city", object: city %>
 
